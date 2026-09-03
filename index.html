@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Affective Mirage? Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models</title>
+  <meta name="title" content="Affective Mirage? Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models">
+  <meta name="description" content="Project page for the WACV 2027 submission on diagnosing MIRAGE-like behavior in visual emotion recognition with vision-language models.">
+  <meta name="keywords" content="visual emotion recognition, vision-language models, affective computing, MIRAGE, visual grounding, uncertainty">
+  <meta name="author" content="Anonymous Authors">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Affective Mirage">
+  <meta property="og:title" content="Affective Mirage? Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models">
+  <meta property="og:description" content="A three-level diagnosis of label-prior collapse, subject evidence dominance, and uncertainty alignment in VLM-based visual emotion recognition.">
+  <meta property="og:url" content="https://affective-mirage.github.io/Affective_Mirage/">
+  <meta property="og:image" content="https://affective-mirage.github.io/Affective_Mirage/static/images/overview.png">
+  <meta property="og:image:alt" content="Overview of the Affective MIRAGE diagnostic framework">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Affective Mirage?">
+  <meta name="twitter:description" content="Diagnosing visual grounding in emotion recognition with vision-language models.">
+  <meta name="twitter:image" content="https://affective-mirage.github.io/Affective_Mirage/static/images/overview.png">
+
+  <meta name="citation_title" content="Affective Mirage? Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models">
+  <meta name="citation_author" content="Anonymous Authors">
+  <meta name="citation_publication_date" content="2027">
+  <meta name="citation_conference_title" content="WACV">
+  <meta name="citation_pdf_url" content="https://affective-mirage.github.io/Affective_Mirage/static/pdfs/AffectMirage_paper.pdf">
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <header class="paper-hero">
+    <div class="container is-max-widescreen">
+      <div class="hero-content">
+        <p class="venue-label">WACV 2027 Submission #2646 | Datasets Track</p>
+        <h1 class="publication-title">
+          Affective Mirage?
+          <span>Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models</span>
+        </h1>
+        <p class="publication-authors">Anonymous Authors</p>
+        <p class="hero-summary">
+          Affective MIRAGE is a three-level diagnostic framework for visual emotion recognition: it examines visual dependence, the causal influence of subject and scene evidence, and uncertainty alignment with human disagreement.
+        </p>
+        <div class="publication-links">
+          <a href="static/pdfs/AffectMirage_paper.pdf" target="_blank" rel="noopener" class="button paper-button">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Paper</span>
+          </a>
+          <a href="static/pdfs/AffectMirage_supplementary_material.pdf" target="_blank" rel="noopener" class="button paper-button">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Supplementary</span>
+          </a>
+          <a href="https://github.com/affective-mirage/Affective_Mirage" target="_blank" rel="noopener" class="button paper-button">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+        </div>
+
+        <figure class="hero-figure">
+          <img src="static/images/overview.png" alt="Overview of the Affective MIRAGE diagnostic framework" loading="eager">
+          <figcaption>
+            The submitted framework diagnoses visual absence, subject-scene interventions, internal restoration evidence, and uncertainty alignment with human ambiguity.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Abstract</h2>
+        <p>
+          Vision-language models (VLMs) have shown remarkable visual understanding capabilities, yet recent studies reveal a prevalent MIRAGE phenomenon: <em>models may produce plausible predictions without faithfully relying on the underlying visual evidence</em>. We investigate whether such behavior also exists in the visual emotion recognition task, which is inherently subjective and often relies on subtle and ambiguous visual cues, potentially making the task particularly susceptible to MIRAGE.
+        </p>
+        <p>
+          Thus, we thoroughly examine open-source, closed-source, and domain-specific VLMs through a novel three-level diagnosis framework, named Affective MIRAGE. First, <strong>general mirage</strong> removes visual evidence to examine model behavior without reliable visual input. Second, <strong>causal mirage</strong> uses controlled intervention to examine how different visual evidence causally influences model predictions, together with mechanism-level analysis of visual grounding. Third, <strong>certainty mirage</strong> examines whether model uncertainty follows human disagreement on ambiguous emotions.
+        </p>
+        <p>
+          Our findings reveal three characteristic behaviors of current VLMs in emotion recognition: 1) <strong>without visual evidence, all evaluated VLMs maintain a nearly 100% mirage rate</strong>, while prediction collapse exists toward label priors, 2) the causal dominance of subject evidence is over scene context under counterfactual interventions, and 3) uncertainty alignment with human affective ambiguity is insufficient. To our knowledge, this is the first systematic diagnostic study of MIRAGE behavior in VLM-based visual emotion recognition, identifying limitations beyond benchmark accuracy and offering new insights for future affective VLM evaluation and benchmark design. The code will be available at <a href="https://affective-mirage.github.io/Affective_Mirage/" target="_blank" rel="noopener">https://affective-mirage.github.io/Affective_Mirage/</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="contributions">
+      <div class="container is-max-widescreen">
+        <h2 class="section-title">Paper Contributions</h2>
+        <div class="three-card-grid">
+          <article class="result-block result-d1">
+            <h3>Three-level diagnostic framework.</h3>
+            <p>
+              The paper proposes general, causal, and certainty mirage to examine visual dependence, the causal influence of visual evidence, and uncertainty alignment in visual emotion recognition.
+            </p>
+          </article>
+          <article class="result-block result-d3">
+            <h3>Evidence beyond benchmark scores.</h3>
+            <p>
+              Controlled interventions and mechanism-level analyses uncover prediction collapse, subject evidence dominance over scene context, and partial uncertainty alignment with systematic overconfidence.
+            </p>
+          </article>
+          <article class="result-block result-d4">
+            <h3>Guidance for affective VLM evaluation.</h3>
+            <p>
+              The paper shows that benchmark accuracy alone is insufficient and motivates no-vision controls, generality tests for emotion-specialized models, and multi-annotator benchmark design.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diagnoses">
+      <div class="container is-max-widescreen">
+        <h2 class="section-title">Diagnostic Framework</h2>
+        <div class="diagnosis-grid">
+          <article class="diagnosis-card">
+            <p class="card-kicker">D1 | General Mirage</p>
+            <h3>Visual Absence</h3>
+            <p>Removes reliable visual evidence with blank, noise, and visual-presence hint inputs to test whether models still assert emotion labels.</p>
+          </article>
+          <article class="diagnosis-card">
+            <p class="card-kicker">D2 | Causal Mirage I</p>
+            <h3>Subject Removal</h3>
+            <p>Masks the subject region and measures recognition, F1 degradation, prediction changes, and output concentration.</p>
+          </article>
+          <article class="diagnosis-card">
+            <p class="card-kicker">D3 | Causal Mirage II</p>
+            <h3>Subject-Scene Mismatch</h3>
+            <p>Recombines subject and scene evidence across paired samples, then uses CED and restoration maps to read which source drives the output.</p>
+          </article>
+          <article class="diagnosis-card">
+            <p class="card-kicker">D4 | Certainty Mirage</p>
+            <h3>Affective Ambiguity</h3>
+            <p>Compares model entropy with human vote disagreement on FER+ to test whether confidence reflects ambiguous emotion evidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="claims">
+      <div class="container is-max-widescreen">
+        <h2 class="section-title">Claims and Evidence</h2>
+        <div class="table-wrap no-top-margin">
+          <table class="table is-fullwidth result-table">
+            <thead>
+              <tr>
+                <th>Claim in the paper</th>
+                <th>Main evidence shown on the page</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MIRAGE-like behavior also appears in visual emotion recognition, but its form differs from conventional visual tasks.</td>
+                <td>D1 reports near-100% mirage rates under visual absence; Fig. 2 shows prediction concentration under original input, subject removal, and context replacement.</td>
+              </tr>
+              <tr>
+                <td>Benchmark scores do not fully reveal whether affective predictions use visual evidence.</td>
+                <td>The main table in the paper compares original inputs with subject removal and subject-scene recombination, while the collapse figure shows how residual scores can coexist with concentrated output distributions.</td>
+              </tr>
+              <tr>
+                <td>Subject evidence has stronger causal influence than scene context under controlled interventions.</td>
+                <td>D2 and D3 compare subject removal, scene-context replacement, and subject-region replacement; the case-study PRMs visualize internal restoration patterns for EMOTIC samples.</td>
+              </tr>
+              <tr>
+                <td>Model uncertainty partially tracks human ambiguity but remains overconfident.</td>
+                <td>D4 compares model entropy with human vote entropy on FER+; the entropy scatter plot shows the gap between model uncertainty and human disagreement.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-max-widescreen">
+        <h2 class="section-title">Key Findings</h2>
+        <div class="result-grid">
+          <article class="result-block result-d1">
+            <p class="card-kicker">Key Finding 1</p>
+            <h3>General mirage appears as label-prior collapse.</h3>
+            <p>
+              Without visual evidence, VLMs maintain a nearly 100% mirage rate in emotion recognition, while their predictions collapse toward a dominant label. Emotion-specific models introduce greater variation in this collapse pattern.
+            </p>
+          </article>
+          <article class="result-block result-d2">
+            <p class="card-kicker">Key Finding 2</p>
+            <h3>Prediction collapse can survive subject removal.</h3>
+            <p>
+              VLMs exhibit obvious prediction collapse on emotion prediction tasks. This collapse can be amplified by removing subject-region evidence, though models still achieve nontrivial benchmark scores.
+            </p>
+          </article>
+          <article class="result-block result-d3">
+            <p class="card-kicker">Key Finding 3</p>
+            <h3>General VLMs rely predominantly on subject evidence.</h3>
+            <p>
+              General VLMs rely predominantly on subject evidence, with scene context failing to substitute when the subject is removed. Affective VLMs show more model-specific source preferences.
+            </p>
+          </article>
+          <article class="result-block result-d4">
+            <p class="card-kicker">Key Finding 4</p>
+            <h3>Uncertainty alignment remains incomplete.</h3>
+            <p>
+              Model uncertainty generally increases with human disagreement, but confidence remains systematically too high, indicating only partial alignment with human affective ambiguity.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="figures">
+      <div class="container is-max-widescreen">
+        <h2 class="section-title">Figures</h2>
+        <div class="figure-stack">
+          <figure class="paper-figure">
+            <img src="static/images/prediction_collapse.png" alt="Prediction concentration under original input, subject removal, and context replacement" loading="lazy">
+            <figcaption>
+              Prediction concentration under the original input, subject removal, and context replacement. The bars separate the Top1 label, the next two labels, and all remaining labels.
+            </figcaption>
+          </figure>
+
+          <div class="figure-grid">
+            <figure class="paper-figure">
+              <img src="static/images/case_study.png" alt="Prediction restoration maps for three EMOTIC samples" loading="lazy">
+              <figcaption>
+                Prediction restoration maps for three EMOTIC samples. Higher values indicate a larger increase in the probability of the full-input prediction after restoring that visual-token state.
+              </figcaption>
+            </figure>
+            <figure class="paper-figure">
+              <img src="static/images/uncertainty_scatter.png" alt="Model entropy versus human entropy on FER+" loading="lazy">
+              <figcaption>
+                Model entropy versus human entropy on FER+. Points above the diagonal are more uncertain than humans; points below it are less uncertain.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Datasets and Models</h2>
+        <p>
+          The submitted study evaluates seven VLMs: GPT-5.6 Luna, Gemini-3.5 Flash-Lite, Qwen3.5-9B, InternVL3.5-8B, Ministral 3 8B, Emotion-LLaMA, and AffectGPT. The diagnoses use RAF-DB for visual absence, EMOTIC and CAER for subject-scene interventions, and FER+ for human-ambiguity analysis.
+        </p>
+        <div class="resource-links">
+          <a href="static/pdfs/AffectMirage_paper.pdf" target="_blank" rel="noopener">Paper PDF</a>
+          <a href="static/pdfs/AffectMirage_supplementary_material.pdf" target="_blank" rel="noopener">Supplementary PDF</a>
+          <a href="https://github.com/affective-mirage/Affective_Mirage" target="_blank" rel="noopener">GitHub Repository</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="bibtex">
+      <div class="container is-max-desktop">
+        <div class="bibtex-header">
+          <h2 class="section-title no-margin">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@inproceedings{affectivemirage2027,
+  title={Affective Mirage? Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models},
+  author={Anonymous Authors},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  year={2027},
+  url={https://affective-mirage.github.io/Affective_Mirage/}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop">
+      <p>
+        This project page is adapted from the
+        <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>,
+        which was adopted from the Nerfies project page.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
