@@ -1,6 +1,6 @@
 # Affective Mirage Project Page
 
-This repository is for the WACV 2027 submission:
+This repository is for the FG 2027 submission:
 
 **Affective Mirage? Diagnosing Visual Grounding in Emotion Recognition with Vision Language Models**
 
